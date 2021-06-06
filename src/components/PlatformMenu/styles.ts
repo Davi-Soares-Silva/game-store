@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { Image, ScrollView, TouchableOpacity } from 'react-native';
 
 export const Container = styled(ScrollView)`
-margin-top: 14px;
+  margin-top: 14px;
   max-height: 100px;
-  padding-left: 14px;
+  margin-left: 40px;
 `;
 
 export const ButtonPlatform = styled(TouchableOpacity)`

@@ -2,8 +2,6 @@ import { ImageBackground, Platform, SafeAreaView, View } from 'react-native';
 import styled from 'styled-components';
 import Constants from 'expo-constants';
 
-import colors from '../../styles/colors';
-
 const statusBarHeight = Platform.OS === 'android' ?
   Constants.statusBarHeight : 0;
 

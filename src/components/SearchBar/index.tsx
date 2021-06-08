@@ -10,7 +10,10 @@ const SearchBar = () => {
       colors={['#8C7D8200', '#e95b5b10']}
       start={[0, 1]} end={[1, 0]}
     >
-      <Bar placeholder="Digite o nome do jogo."/>
+      <Bar 
+        placeholder="Busque pelo nome do jogo."
+        placeholderTextColor={colors.gray}
+      />
       <Icon 
         name="search" 
         size={25} 

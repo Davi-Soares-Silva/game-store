@@ -3,15 +3,16 @@ import { Image, ScrollView, TouchableOpacity } from 'react-native';
 
 export const Container = styled(ScrollView)`
   margin-top: 14px;
+  width: 100%;
   max-height: 100px;
-  margin-left: 40px;
+  margin-right: 30px;
 `;
 
 export const ButtonPlatform = styled(TouchableOpacity)`
   width: 90px;
   height: 90px;
 
-  margin-right: 32px;
+  margin-left: 32px;
   border-radius: 10px;
 
   justify-content: center;

@@ -8,6 +8,7 @@ import { TextInput } from 'react-native';
 export const Container = styled(LinearGradient)`
   width: 332px;
   margin-top: 100px;
+  margin-bottom: 40px;
   border-radius: 20px;
 
   align-items: center;

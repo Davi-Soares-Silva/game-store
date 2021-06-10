@@ -2,53 +2,16 @@ import React from 'react';
 import { View, FlatList  } from 'react-native';
 import { Banner, GameCard, InfoContainer, Price, Title, Platform } from './style';
 
-const data = [
-  {
-    key: '1',
-    imageUrl: 'https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/03ZtrPdjasIxzi8QrzOb2zCIHLMydFbh.png',
-    title: 'Crash Bandicoot N-Sane Trilogy - PS4',
-    platformUrl: 'https://i.ibb.co/6XV1c2N/ps-logo.png',
-    price: 120.89
-  },
-  {
-    key: '2',
-    imageUrl: 'https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/03ZtrPdjasIxzi8QrzOb2zCIHLMydFbh.png',
-    title: 'Crash Bandicoot N-Sane Trilogy - PS4',
-    platformUrl: 'https://i.ibb.co/6XV1c2N/ps-logo.png',
-    price: 72.99
-  },
-  {
-    key: '3',
-    imageUrl: 'https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/03ZtrPdjasIxzi8QrzOb2zCIHLMydFbh.png',
-    title: 'Crash Bandicoot N-Sane Trilogy - PS4',
-    platformUrl: 'https://i.ibb.co/6XV1c2N/ps-logo.png',
-    price: 233.50
-  },
-  {
-    key: '4',
-    imageUrl: 'https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/03ZtrPdjasIxzi8QrzOb2zCIHLMydFbh.png',
-    title: 'Crash Bandicoot N-Sane Trilogy - PS4',
-    platformUrl: 'https://i.ibb.co/6XV1c2N/ps-logo.png',
-    price: 10.6
-  },
-  {
-    key: '5',
-    imageUrl: 'https://image.api.playstation.com/cdn/UP0002/CUSA07402_00/03ZtrPdjasIxzi8QrzOb2zCIHLMydFbh.png',
-    title: 'Crash Bandicoot N-Sane Trilogy - PS4',
-    platformUrl: 'https://i.ibb.co/6XV1c2N/ps-logo.png',
-    price: 400.15
-  },
-];
-
 interface GameTypes {
-  title: string;
-  platformUrl: string;
+  id: string;
+  name: string;
+  platformIconUrl: string;
   price: number;
   imageUrl: string;
 }
 
 const Game = (props: GameTypes) =>  {
-  const { title, platformUrl, price, imageUrl } = props;
+  const { name, platformIconUrl, price, imageUrl } = props;
 
   return (
     <GameCard>
@@ -57,10 +20,10 @@ const Game = (props: GameTypes) =>  {
       }} />
       <InfoContainer>
         <Title>
-          {title}
+          {name}
         </Title>
         <Platform source={{
-          uri: platformUrl
+          uri: platformIconUrl
         }}/>
         <Price>R$ {price.toString().replace('.', ',')}</Price>
       </InfoContainer>
@@ -68,17 +31,21 @@ const Game = (props: GameTypes) =>  {
   );
 }
 
-const GameList = () => {
+interface GameList {
+  gameList: Array<GameTypes>
+}
+
+const GameList = ({ gameList }: GameList ) => {
   const renderItem = ({ item }: any) => (
-    <Game title={item.title} price={item.price} platformUrl={item.platformUrl} imageUrl={item.imageUrl} />
+    <Game name={item.name} price={item.price} platformIconUrl={item.platformIconUrl} imageUrl={item.imageUrl} id={item.id}/>
   )
 
 
   return (
     <FlatList
-      data={data}
+      data={gameList}
       renderItem={renderItem}
-      keyExtractor={item => item.key}
+      keyExtractor={item => item.id}
     />
   );
 }
